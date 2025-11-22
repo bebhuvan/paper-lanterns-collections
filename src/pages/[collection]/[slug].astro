@@ -1,0 +1,593 @@
+---
+export const prerender = true;
+
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const allLetters = await getCollection('letters');
+
+  // Group letters by collection
+  const collectionMap = new Map();
+  allLetters.forEach((letter) => {
+    const col = letter.data.collection;
+    if (!collectionMap.has(col)) {
+      collectionMap.set(col, []);
+    }
+    collectionMap.get(col).push(letter);
+  });
+
+  // Sort letters in each collection by number
+  collectionMap.forEach((letters) => {
+    letters.sort((a, b) => a.data.number - b.data.number);
+  });
+
+  // Create paths with next/prev info
+  return allLetters.map((letter) => {
+    const collectionLetters = collectionMap.get(letter.data.collection);
+    const currentIndex = collectionLetters.findIndex(l => l.slug === letter.slug);
+
+    const prevLetter = currentIndex > 0 ? collectionLetters[currentIndex - 1] : null;
+    const nextLetter = currentIndex < collectionLetters.length - 1 ? collectionLetters[currentIndex + 1] : null;
+
+    return {
+      params: {
+        collection: letter.data.collection,
+        slug: letter.slug
+      },
+      props: {
+        letter,
+        prevLetter,
+        nextLetter
+      }
+    };
+  });
+}
+
+interface Props {
+  letter: CollectionEntry<'letters'>;
+  prevLetter: CollectionEntry<'letters'> | null;
+  nextLetter: CollectionEntry<'letters'> | null;
+}
+
+const { letter, prevLetter, nextLetter } = Astro.props;
+const { Content } = await letter.render();
+const { title, author, recipient, date, number, collection, collectionTitle } = letter.data;
+
+// Structured data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "author": {
+    "@type": "Person",
+    "name": author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PaperLanterns.ink",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${Astro.site}logo.png`
+    }
+  },
+  "description": `A letter from ${author}${recipient ? ` to ${recipient}` : ''}${date ? ` (${date})` : ''}`,
+  "isPartOf": {
+    "@type": "CreativeWork",
+    "name": collectionTitle
+  },
+  "inLanguage": "en",
+  "license": "https://creativecommons.org/publicdomain/mark/1.0/"
+};
+
+// Breadcrumb structured data
+const breadcrumbData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": `${Astro.site}`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": author,
+      "item": `${Astro.site}${collection}`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": `Letter ${number}`,
+      "item": `${Astro.site}${collection}/${letter.slug}`
+    }
+  ]
+};
+---
+
+<Base title={`${title} - ${author} - PaperLanterns.ink`} article={true}>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbData)} />
+  <!-- Letter Layout -->
+  <div class="letter-wrapper">
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item"><a href={`/${collection}`}>{author}</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item breadcrumb-current" aria-current="page">Letter {number}</li>
+      </ol>
+    </nav>
+
+    <div class="letter-container">
+      <!-- Letter Metadata Sidebar -->
+      <aside class="letter-aside">
+        <div class="aside-content">
+          <div class="meta-section">
+            <div class="meta-label">Letter</div>
+            <div class="meta-value">№ {number}</div>
+          </div>
+
+          <div class="meta-section">
+            <div class="meta-label">From</div>
+            <div class="meta-value">{author}</div>
+          </div>
+
+          {recipient && (
+            <div class="meta-section">
+              <div class="meta-label">To</div>
+              <div class="meta-value">{recipient}</div>
+            </div>
+          )}
+
+          {date && (
+            <div class="meta-section">
+              <div class="meta-label">Date</div>
+              <div class="meta-value">{date}</div>
+            </div>
+          )}
+
+          <div class="meta-section">
+            <div class="meta-label">Collection</div>
+            <div class="meta-value meta-link">
+              <a href={`/${collection}`}>{collectionTitle}</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Letter Content -->
+      <main class="letter-main">
+        <!-- Letter Header -->
+        <header class="letter-header">
+          <h1 class="letter-title">{title}</h1>
+        </header>
+
+        <!-- Letter Body -->
+        <article class="letter-body">
+          <Content />
+        </article>
+
+        <!-- Letter Navigation -->
+        <nav class="letter-navigation" aria-label="Letter navigation">
+          {prevLetter && (
+            <a href={`/${collection}/${prevLetter.slug}`} class="nav-link nav-prev">
+              <div class="nav-label">← Previous</div>
+              <div class="nav-title">{prevLetter.data.title}</div>
+            </a>
+          )}
+          <a href={`/${collection}`} class="nav-link nav-collection">
+            <div class="nav-label">All Letters</div>
+            <div class="nav-title">{collectionTitle}</div>
+          </a>
+          {nextLetter && (
+            <a href={`/${collection}/${nextLetter.slug}`} class="nav-link nav-next">
+              <div class="nav-label">Next →</div>
+              <div class="nav-title">{nextLetter.data.title}</div>
+            </a>
+          )}
+        </nav>
+      </main>
+    </div>
+  </div>
+</Base>
+
+<style>
+  /* ==================== WRAPPER ==================== */
+  .letter-wrapper {
+    grid-column: 1 / -1;
+    margin-top: var(--space-4xl);
+  }
+
+  /* ==================== BREADCRUMB ==================== */
+  .breadcrumb {
+    margin-bottom: var(--space-6xl);
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    list-style: none;
+    font-family: var(--font-sans);
+    font-size: var(--text-tiny);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .breadcrumb-item a {
+    color: var(--color-text-tertiary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+  }
+
+  .breadcrumb-item a:hover {
+    color: var(--color-accent-start);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-text-muted);
+    font-weight: 300;
+  }
+
+  .breadcrumb-current {
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+
+  /* ==================== LETTER CONTAINER ==================== */
+  .letter-container {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-8xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ==================== SIDEBAR ==================== */
+  .letter-aside {
+    position: sticky;
+    top: var(--space-6xl);
+    height: fit-content;
+  }
+
+  .aside-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5xl);
+  }
+
+  .meta-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .meta-label {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-label);
+    font-weight: 700;
+  }
+
+  .meta-value {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+
+  .meta-link a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+  }
+
+  .meta-link a:hover {
+    color: var(--color-accent-start);
+  }
+
+  /* ==================== MAIN CONTENT ==================== */
+  .letter-main {
+    max-width: 680px;
+  }
+
+  /* ==================== LETTER HEADER ==================== */
+  .letter-header {
+    margin-bottom: var(--space-6xl);
+    padding-bottom: var(--space-5xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .letter-title {
+    font-size: 56px;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  /* ==================== LETTER BODY ==================== */
+  .letter-body {
+    font-size: 20px;
+    line-height: 1.85;
+    color: var(--color-text-primary);
+    font-weight: 400;
+    margin-bottom: var(--space-8xl);
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+  }
+
+  .letter-body :global(p) {
+    margin-bottom: 1.8em;
+    user-select: text;
+    cursor: text;
+  }
+
+  /* Elegant drop cap */
+  .letter-body :global(p:first-of-type::first-letter) {
+    font-size: 3.8em;
+    line-height: 0.85;
+    float: left;
+    margin: 0.08em 0.12em -0.05em 0;
+    color: var(--color-accent-start);
+    font-weight: 300;
+  }
+
+  .letter-body :global(em),
+  .letter-body :global(i) {
+    font-style: italic;
+    color: var(--color-text-secondary);
+  }
+
+  .letter-body :global(strong),
+  .letter-body :global(b) {
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .letter-body :global(blockquote) {
+    margin: var(--space-6xl) 0;
+    padding-left: var(--space-5xl);
+    border-left: 2px solid var(--color-accent-end);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    font-size: 0.95em;
+  }
+
+  /* Heading spacing within letter content */
+  .letter-body :global(h1),
+  .letter-body :global(h2),
+  .letter-body :global(h3),
+  .letter-body :global(h4),
+  .letter-body :global(h5),
+  .letter-body :global(h6) {
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+  }
+
+  .letter-body :global(h1) {
+    font-size: 1.8em;
+  }
+
+  .letter-body :global(h2) {
+    font-size: 1.5em;
+  }
+
+  .letter-body :global(h3) {
+    font-size: 1.3em;
+  }
+
+  .letter-body :global(h4),
+  .letter-body :global(h5),
+  .letter-body :global(h6) {
+    font-size: 1.1em;
+  }
+
+  /* First heading has less top margin */
+  .letter-body :global(h1:first-child),
+  .letter-body :global(h2:first-child),
+  .letter-body :global(h3:first-child) {
+    margin-top: 0;
+  }
+
+  /* ==================== LETTER NAVIGATION ==================== */
+  .letter-navigation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    padding-top: var(--space-6xl);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-6xl);
+  }
+
+  .nav-link {
+    padding: var(--space-3xl) var(--space-lg);
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    background: var(--color-bg);
+  }
+
+  .nav-link:hover {
+    border-color: var(--color-accent-start);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .nav-label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    font-weight: 700;
+  }
+
+  .nav-title {
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    line-height: 1.5;
+  }
+
+  .nav-collection {
+    text-align: center;
+  }
+
+  .nav-next {
+    text-align: right;
+  }
+
+  .nav-prev .nav-label,
+  .nav-next .nav-label {
+    color: var(--color-accent-start);
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 1100px) {
+    .letter-container {
+      grid-template-columns: 180px 1fr;
+      gap: var(--space-6xl);
+    }
+
+    .letter-title {
+      font-size: 48px;
+    }
+
+    .letter-body {
+      font-size: 19px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .letter-wrapper {
+      margin-top: var(--space-6xl);
+    }
+
+    .breadcrumb {
+      margin-bottom: var(--space-5xl);
+    }
+
+    .breadcrumb-list {
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .letter-container {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    /* Mobile: Reorder - metadata comes BEFORE title */
+    .letter-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .letter-aside {
+      position: static;
+      order: 1;
+      margin-bottom: var(--space-4xl);
+      padding: var(--space-3xl);
+      background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+      border-radius: 4px;
+      border: 1px solid var(--color-border);
+    }
+
+    .aside-content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-lg) var(--space-4xl);
+    }
+
+    .meta-section {
+      flex: 0 0 auto;
+      min-width: 130px;
+    }
+
+    .meta-label {
+      font-size: 8px;
+      letter-spacing: 1.6px;
+    }
+
+    .meta-value {
+      font-size: 13px;
+    }
+
+    .letter-main {
+      max-width: 100%;
+      order: 2;
+    }
+
+    .letter-header {
+      margin-bottom: var(--space-5xl);
+      padding-bottom: var(--space-4xl);
+    }
+
+    .letter-body {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: var(--space-7xl);
+    }
+
+    .letter-title {
+      font-size: 40px;
+      letter-spacing: -1.5px;
+    }
+
+    .letter-body :global(p) {
+      margin-bottom: 1.7em;
+    }
+
+    .letter-navigation {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .nav-link {
+      padding: var(--space-xl);
+    }
+
+    .nav-collection,
+    .nav-next {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .aside-content {
+      flex-direction: column;
+      gap: var(--space-3xl);
+    }
+
+    .meta-section {
+      min-width: 0;
+    }
+
+    .letter-title {
+      font-size: 32px;
+    }
+
+    .letter-body {
+      font-size: 17px;
+    }
+  }
+</style>

@@ -1,0 +1,14 @@
+---
+title: "The Dyer Debates"
+author: "Rabindranath Tagore"
+recipient: "Charles Freer Andrews"
+date: "July 22, 1920"
+number: 7
+collection: "tagore-letters-from-abroad"
+collectionTitle: "Letters from Abroad"
+period: "1920-1921"
+---
+
+The result of the Dyer debates in both Houses of Parliament makes painfully evident the attitude of mind of the ruling class of this country towards India. It shows that no outrage, however monstrous, committed against us by agents of their Government, can arouse feelings of indignation in the hearts of those from whom our governors are chosen. The unashamed condonation of brutality expressed in their speeches and echoed in their newspapers is ugly in its frightfulness. The feeling of humiliation about our position under the Anglo-Indian domination had been growing stronger every day for the last fifty years or more; but the one consolation we had, was our faith in the love of justice in your people, whose soul had not been poisoned by that fatal dose of power which could only be available in a dependency where the manhood of the entire population had been crushed down into helplessness. But the poison has gone further than we expected, and it has attacked the vital organ of your nation and I feel that our appeal to your higher nature will meet with less and less response every day. I only hope that our countrymen will not lose heart at this, but employ all their energies in the service of their country in a spirit of indomitable courage and determination. The late events have conclusively proved that our true salvation lies in our own hands; that a nation’s greatness can never find its foundation in half-hearted concessions of contemptuous niggardliness. It is the sign of feeble character to seek for a short-cut to fulfilment through the favour of those whose interest it is to keep it barred; the one path to it is the difficult path of suffering and self-sacrifice. All great boons only come to us through the power of the immortal spirit we have within us, and that spirit only proves itself by its defiance of danger and loss.
+
+I find it very difficult to write letters; my mind barricades itself against the pressure of the hustling world, and refuses to surrender itself to me when its help is needed. It is taking its revenge for being dragged away from its shelter.

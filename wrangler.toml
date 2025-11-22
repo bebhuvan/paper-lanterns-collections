@@ -1,0 +1,26 @@
+name = "paper-lanterns-collections"
+compatibility_date = "2024-11-18"
+
+# Account ID
+account_id = "169758eb3d46dcbb6dba025317257426"
+
+# Routes - deployed to collections.paperlanterns.ink
+routes = [
+  { pattern = "collections.paperlanterns.ink/*", zone_name = "paperlanterns.ink" }
+]
+
+# Workers Assets configuration for static site
+[assets]
+directory = "./dist"
+# Enable HTML rewriting for optimizations
+html_handling = "auto-trailing-slash"
+# Not found handling
+not_found_handling = "single-page-application"
+
+# Observability for monitoring performance
+[observability]
+enabled = true
+
+# Tail consumers for real-time logs (optional)
+# [tail_consumers]
+# Uncomment to add tail consumers for log analysis

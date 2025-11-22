@@ -1,0 +1,355 @@
+---
+export const prerender = true;
+
+import Base from '../layouts/Base.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About PaperLanterns.ink",
+  "description": "Preserving the intimate conversations that shaped our world. A curated collection of historical letters from public domain archives.",
+  "url": "https://collections.paperlanterns.ink/about",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "PaperLanterns.ink",
+    "url": "https://paperlanterns.ink",
+    "description": "Cataloging Indian public domain works and historical correspondence",
+    "founder": {
+      "@type": "Person",
+      "name": "Bhuvan Mehra"
+    }
+  }
+};
+---
+
+<Base
+  title="About - PaperLanterns.ink"
+  description="Preserving the intimate conversations that shaped our world. A curated collection of historical letters from public domain archives."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <!-- Hero -->
+  <div class="about-hero">
+    <div class="hero-label">About the Project</div>
+    <h1 class="hero-title">Preserving the intimate<br>conversations that shaped<br>our world</h1>
+    <p class="hero-subtitle">
+      Before the age of instant communication, every written word carried weight.
+      Letters were deliberate, speeches carefully crafted, and each sentence intentionally chosen.
+      These documents reveal the human experiences—hopes, fears, loves, and dreams of those who came before us.
+    </p>
+  </div>
+
+  <!-- Vision Section -->
+  <div class="content-section">
+    <div class="section-label">My Vision</div>
+    <div class="section-content">
+      <h2 class="section-title">Why Letters Matter</h2>
+      <p class="section-text">
+        Letters offer an intimate window into the minds of great thinkers, writers, and historical
+        figures. Unlike their published works, letters reveal the personal thoughts, daily struggles,
+        and human connections that shaped history.
+      </p>
+      <p class="section-text">
+        These historical letters, speeches, and essays are frozen moments that can awaken human capabilities.
+        Many documents remain neglected, waiting for rediscovery. I treat these materials as works of art,
+        windows into the soul, and bridges across time.
+      </p>
+    </div>
+  </div>
+
+  <!-- Behind the Page Section -->
+  <div class="content-section">
+    <div class="section-label">Behind the Page</div>
+    <div class="section-content">
+      <h2 class="section-title">A Labor of Love</h2>
+      <p class="section-text">
+        I'm Bhuvan, and I'm pursuing a larger initiative cataloging Indian public domain works.
+        On the <a href="https://paperlanterns.ink" target="_blank" rel="noopener">main Paper Lanterns site</a>,
+        I curate individual letters and documents with rich historical context.
+      </p>
+      <p class="section-text">
+        This collections site serves a different purpose: I clean up historic letter collections in their entirety,
+        fixing OCR errors and doing manual quality checks to preserve complete correspondences. This work is done
+        almost entirely manually, one letter at a time, using AI tools to assist with formatting and verification
+        but without specialized technical infrastructure.
+      </p>
+      <p class="section-text">
+        This is truly a labor of love. If you're an expert in OCR techniques or historical document preservation
+        and would like to help improve this process, I'd be grateful for your guidance. You can reach me on
+        <a href="https://twitter.com/bhuvan_mehra" target="_blank" rel="noopener">Twitter</a> or
+        <a href="https://www.linkedin.com/in/bhuvaneshmehra" target="_blank" rel="noopener">LinkedIn</a>.
+      </p>
+      <p class="section-text">
+        Inspired by <em>Letters of Note</em> by Shaun Usher, I'm collecting documents carefully verified
+        for authenticity and historical accuracy. I believe these materials contain timeless wisdom and beauty
+        that should be accessible to everyone.
+      </p>
+    </div>
+  </div>
+
+  <!-- Part of Dhwani Section -->
+  <div class="content-section">
+    <div class="section-label">The Bigger Picture</div>
+    <div class="section-content">
+      <h2 class="section-title">Part of Dhwani.ink</h2>
+      <p class="section-text">
+        This project is part of my larger work with <a href="https://dhwani.ink" target="_blank" rel="noopener">Dhwani.ink</a>,
+        where I'm building a curated directory of Indian literary and historical works in the public domain.
+        Dhwani—a Kannada word meaning "voice" or "sound"—represents these works as voices from history, echoing across time.
+      </p>
+      <p class="section-text">
+        While Dhwani aggregates links to thousands of public domain works from repositories like Archive.org,
+        Project Gutenberg, and Wikisource, PaperLanterns focuses on the intimate art of correspondence.
+        Together, they address what I see as a profound cultural apathy toward preserving our literary heritage.
+      </p>
+      <p class="section-text">
+        As I wrote on Dhwani: "This is our history. And if we don't preserve our past, the future will be
+        nothing but a shitty remake of it." These letter collections are one way I'm working to ensure
+        these voices—these windows into the minds of great thinkers—remain accessible to future generations.
+      </p>
+    </div>
+  </div>
+
+  <!-- Sources Section -->
+  <div class="content-section">
+    <div class="section-label">Sources</div>
+    <div class="section-content">
+      <h2 class="section-title">Where I Find Collections</h2>
+      <p class="section-text">
+        My primary sources include Archive.org, Wikisource, Project Gutenberg, and university
+        special collections. I carefully verify that all materials are free from copyright
+        restrictions before publication.
+      </p>
+      <p class="section-text">
+        Each collection includes source citations linking back to the original archive,
+        ensuring transparency and enabling further research.
+      </p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  /* ==================== HERO ==================== */
+  .about-hero {
+    grid-column: 1 / -1;
+    padding: var(--space-9xl) 0 var(--space-8xl) 0;
+    text-align: center;
+    animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hero-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-text-label);
+    margin-bottom: var(--space-xl);
+    font-weight: 700;
+  }
+
+  .hero-title {
+    font-size: var(--text-hero);
+    font-weight: 300;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    margin-bottom: var(--space-5xl);
+    color: var(--color-text-primary);
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    color: var(--color-text-secondary);
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: var(--leading-loose);
+  }
+
+  /* ==================== CONTENT SECTIONS ==================== */
+  .content-section {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--grid-gap);
+    padding: var(--space-8xl) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section-label {
+    grid-column: 1 / 4;
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-text-label);
+    font-weight: 700;
+    position: sticky;
+    top: 160px;
+    align-self: start;
+  }
+
+  .section-content {
+    grid-column: 5 / 12;
+  }
+
+  .section-title {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: var(--space-3xl);
+    color: var(--color-text-primary);
+  }
+
+  .section-text {
+    font-size: 20px;
+    line-height: var(--leading-loose);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .section-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ==================== PROCESS STEPS ==================== */
+  .process-steps {
+    margin-top: var(--space-6xl);
+  }
+
+  .process-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: var(--space-3xl);
+    margin-bottom: 56px;
+  }
+
+  .process-step:last-child {
+    margin-bottom: 0;
+  }
+
+  .step-number {
+    font-size: 56px;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--color-border);
+    letter-spacing: -2px;
+  }
+
+  .step-content h3 {
+    font-size: var(--text-xl);
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+    letter-spacing: var(--tracking-title);
+  }
+
+  .step-content p {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    font-weight: 400;
+  }
+
+  /* ==================== PRINCIPLES ==================== */
+  .principles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5xl);
+    margin-top: var(--space-6xl);
+  }
+
+  .principle-card {
+    background: linear-gradient(135deg,
+      rgba(250, 250, 249, 0.8) 0%,
+      rgba(247, 246, 243, 0.9) 100%);
+    padding: var(--space-4xl);
+    border-left: 3px solid var(--color-accent-end);
+    transition: all var(--transition-base);
+  }
+
+  .principle-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
+  }
+
+  .principle-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-start);
+    letter-spacing: -0.3px;
+  }
+
+  .principle-card p {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    font-weight: 400;
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 1100px) {
+    .hero-title {
+      font-size: 64px;
+    }
+
+    .section-label {
+      grid-column: 1 / 5;
+    }
+
+    .section-content {
+      grid-column: 5 / 13;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-hero {
+      padding: var(--space-7xl) 0 var(--space-6xl) 0;
+    }
+
+    .hero-title {
+      font-size: 48px;
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-subtitle);
+    }
+
+    .section-label,
+    .section-content {
+      grid-column: 1 / -1;
+    }
+
+    .section-label {
+      position: relative;
+      top: 0;
+      margin-bottom: var(--space-xl);
+    }
+
+    .section-title {
+      font-size: 36px;
+    }
+
+    .section-text {
+      font-size: var(--text-subtitle);
+    }
+
+    .process-step {
+      grid-template-columns: 60px 1fr;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-4xl);
+    }
+
+    .step-number {
+      font-size: 40px;
+    }
+
+    .principles-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-3xl);
+    }
+  }
+</style>

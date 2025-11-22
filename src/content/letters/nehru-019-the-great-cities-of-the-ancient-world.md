@@ -1,0 +1,17 @@
+---
+title: "The Great Cities of the Ancient World"
+author: "Jawaharlal Nehru"
+recipient: "Indira Priyadarshini"
+date: "1928"
+location: "Allahabad"
+number: 19
+collection: "nehru-father-daughter-letters"
+collectionTitle: "Letters From A Father To His Daughter"
+period: "1928-1931"
+---
+
+We have seen that people first settled down near big rivers and in fertile valleys where food and water were abundant. Their big cities were on the banks of the rivers. You may have heard the names of some of these famous old cities. In Mesopotamia there were Babylon and Nineveh and Assur. But all of these have long ceased to exist and people sometimes find remains of the cities if they dig deep enough in the sand or earth. In thousands of years they were covered up completely by sand and earth and no trace of them could be seen. In some places new cities were built right on top of the old ones which were covered up. People who have been trying to find out about these old cities have had to dig deep, and sometimes they have found several cities one on top of the other. Of course they did not exist like this at the same time. One city probably existed for hundreds of years and people lived in it and died, and their children and children's children lived and died. Gradually the city became deserted and fewer people lived in it. At last nobody lived there and the whole place became a heap of ruins. The sand and the dust came and covered up these cities and there was no one to remove it. After many, many years the whole city became covered up with this sand and dust and people even forgot that the city ever existed. Hundreds of years must have passed, and then fresh people came there and built a new city. And this new city in its turn became old and deserted and fell into ruins. And that too disappeared in course of time under sand and dust. So we find sometimes the ruins of many cities one over the other. This happened specially in sandy places for the sand covers everything quickly.
+
+Strange, is it not, that city after city should grow up and shelter crowds of men and women and children, and then gradually die away. And new cities grow where the old used to be and fresh crowds of people come and live in them. And they too die and leave no sign or trace behind. I write about these cities in a few sentences, but think of the thousands and thousands of years that must have passed for these cities to grow and die, and other cities to take their place. We call a man old when he is seventy or eighty years of age. But what is seventy or eighty when we think of these thousands of years? How many little children must have become old and died again and again in these cities when they existed. And now Babylon and Nineveh are but names for us.
+
+Another very old city was Damascus in Syria. But Damascus did not die. It is still there and is a great city. It is said by some that Damascus is probably the oldest city in the world today. In India our great cities are also on the banks of rivers. One of the oldest was Indraprastha, which was somewhere near Delhi. But Indraprastha is no more. Banaras or Kashi (Varanasi) is also very old, perhaps one of the oldest existing cities of the world. Allahabad, Kanpur and Patna, and many others which you can probably yourself think of, are also on the banks of rivers. But these are not very old, though Prayag or Allahabad and Patna or Pataliputra, as it used to be called, are pretty old. So also there are ancient cities in China.

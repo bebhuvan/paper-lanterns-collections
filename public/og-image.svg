@@ -1,0 +1,48 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#faf9f7"/>
+
+  <!-- Subtle gradient overlay -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf9f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5f3f0;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Accent gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c96b6f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4a5a5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Decorative accent line -->
+  <rect x="80" y="80" width="120" height="3" fill="url(#accentGradient)"/>
+
+  <!-- Main content -->
+  <text x="80" y="180" font-family="'Spectral', 'Georgia', serif" font-size="72" font-weight="300" fill="#2b2a28" letter-spacing="-2">
+    PaperLanterns.ink
+  </text>
+
+  <text x="80" y="240" font-family="'Inter', 'Helvetica', sans-serif" font-size="20" font-weight="500" fill="#a09f9c" letter-spacing="3" text-transform="uppercase">
+    HISTORICAL CORRESPONDENCE
+  </text>
+
+  <!-- Subtitle -->
+  <text x="80" y="320" font-family="'Spectral', 'Georgia', serif" font-size="42" font-weight="400" fill="#4a4845" style="line-height: 1.4">
+    <tspan x="80" dy="0">Preserving the intimate</tspan>
+    <tspan x="80" dy="56">conversations that shaped</tspan>
+    <tspan x="80" dy="56">our world</tspan>
+  </text>
+
+  <!-- Bottom accent -->
+  <text x="80" y="550" font-family="'Inter', 'Helvetica', sans-serif" font-size="16" font-weight="400" fill="#8a8985">
+    Gandhi • Nehru • Tagore • Public Domain Letters
+  </text>
+
+  <!-- Decorative corner element -->
+  <circle cx="1100" cy="530" r="80" fill="#c96b6f" opacity="0.08"/>
+  <circle cx="1100" cy="530" r="50" fill="#c96b6f" opacity="0.12"/>
+</svg>

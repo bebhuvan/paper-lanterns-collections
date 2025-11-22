@@ -1,0 +1,570 @@
+---
+// Static prerendering for pure static site
+export const prerender = true;
+
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+// Get all letters for client-side search
+const allLetters = await getCollection('letters');
+
+// Get search query and filters from URL
+const query = Astro.url.searchParams.get('q') || '';
+const authorFilter = Astro.url.searchParams.get('author') || '';
+const collectionFilter = Astro.url.searchParams.get('collection') || '';
+const periodFilter = Astro.url.searchParams.get('period') || '';
+
+// Extract unique values for filters
+const uniqueAuthors = [...new Set(allLetters.map(l => l.data.author))].sort();
+
+// Get unique collections
+const collectionsMap = new Map<string, string>();
+allLetters.forEach(l => {
+  if (!collectionsMap.has(l.data.collection)) {
+    collectionsMap.set(l.data.collection, l.data.collectionTitle);
+  }
+});
+const uniqueCollections = Array.from(collectionsMap.entries())
+  .map(([id, title]) => ({ id, title }))
+  .sort((a, b) => a.title.localeCompare(b.title));
+
+const uniquePeriods = [...new Set(allLetters.map(l => l.data.period).filter(Boolean))].sort() as string[];
+
+// Simple client-side search implementation
+// TODO: Replace with D1 FTS when ready
+let results = allLetters;
+
+// Apply search query
+if (query.trim()) {
+  const searchTerm = query.toLowerCase().trim();
+  results = results.filter(letter => {
+    const searchableText = [
+      letter.data.title,
+      letter.data.author,
+      letter.data.recipient || '',
+      letter.data.collectionTitle,
+      letter.body
+    ].join(' ').toLowerCase();
+
+    return searchableText.includes(searchTerm);
+  });
+}
+
+// Apply filters
+if (authorFilter) {
+  results = results.filter(letter => letter.data.author === authorFilter);
+}
+if (collectionFilter) {
+  results = results.filter(letter => letter.data.collection === collectionFilter);
+}
+if (periodFilter) {
+  results = results.filter(letter => letter.data.period === periodFilter);
+}
+
+const resultsCount = results.length;
+---
+
+<Base title={query ? `Search: ${query} - PaperLanterns.ink` : 'Search - PaperLanterns.ink'}>
+  <!-- Search Hero -->
+  <div class="search-hero">
+    <div class="search-label">Search Letters</div>
+    {query ? (
+      <h1 class="search-title">
+        Results for <mark>"{query}"</mark>
+      </h1>
+    ) : (
+      <h1 class="search-title">Search Historical Letters</h1>
+    )}
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <form action="/search" method="get" class="search-bar">
+      <input
+        type="search"
+        name="q"
+        class="search-input"
+        placeholder="Search by author, recipient, content..."
+        autocomplete="off"
+        value={query}
+        autofocus
+      />
+      <button type="submit" class="search-button">Search</button>
+    </form>
+  </div>
+
+  <!-- Filters and Results Layout -->
+  {query && (
+    <div class="search-layout">
+      <!-- Filters Sidebar -->
+      <aside class="filters-sidebar">
+        <div class="filters-header">
+          <h3 class="filters-title">Filter Results</h3>
+          {(authorFilter || collectionFilter || periodFilter) && (
+            <a href={`/search?q=${encodeURIComponent(query)}`} class="clear-filters">Clear All</a>
+          )}
+        </div>
+
+        <!-- Author Filter -->
+        <div class="filter-group">
+          <div class="filter-label">Author</div>
+          <select
+            class="filter-select"
+            id="author-filter"
+            onchange={`window.location.href='/search?q=${encodeURIComponent(query)}${collectionFilter ? '&collection=' + encodeURIComponent(collectionFilter) : ''}${periodFilter ? '&period=' + encodeURIComponent(periodFilter) : ''}&author=' + this.value`}
+          >
+            <option value="">All Authors</option>
+            {uniqueAuthors.map(author => (
+              <option value={author} selected={authorFilter === author}>{author}</option>
+            ))}
+          </select>
+        </div>
+
+        <!-- Collection Filter -->
+        <div class="filter-group">
+          <div class="filter-label">Collection</div>
+          <select
+            class="filter-select"
+            id="collection-filter"
+            onchange={`window.location.href='/search?q=${encodeURIComponent(query)}${authorFilter ? '&author=' + encodeURIComponent(authorFilter) : ''}${periodFilter ? '&period=' + encodeURIComponent(periodFilter) : ''}&collection=' + this.value`}
+          >
+            <option value="">All Collections</option>
+            {uniqueCollections.map(col => (
+              <option value={col.id} selected={collectionFilter === col.id}>{col.title}</option>
+            ))}
+          </select>
+        </div>
+
+        <!-- Period Filter -->
+        {uniquePeriods.length > 0 && (
+          <div class="filter-group">
+            <div class="filter-label">Period</div>
+            <select
+              class="filter-select"
+              id="period-filter"
+              onchange={`window.location.href='/search?q=${encodeURIComponent(query)}${authorFilter ? '&author=' + encodeURIComponent(authorFilter) : ''}${collectionFilter ? '&collection=' + encodeURIComponent(collectionFilter) : ''}&period=' + this.value`}
+            >
+              <option value="">All Periods</option>
+              {uniquePeriods.map(period => (
+                <option value={period} selected={periodFilter === period}>{period}</option>
+              ))}
+            </select>
+          </div>
+        )}
+      </aside>
+
+      <!-- Results Section -->
+      <div class="results-section">
+      <div class="results-header">
+        <div class="results-count">
+          {resultsCount} {resultsCount === 1 ? 'result' : 'results'} found
+        </div>
+      </div>
+
+      {resultsCount > 0 ? (
+        <div class="results-list">
+          {results.map((letter) => (
+            <a href={`/${letter.data.collection}/${letter.slug}`} class="result-item">
+              <div class="result-meta">
+                <span class="result-author">{letter.data.author}</span>
+                {letter.data.date && <span>·</span>}
+                {letter.data.date && <span>{letter.data.date}</span>}
+              </div>
+              <h2 class="result-title">{letter.data.title}</h2>
+              {letter.data.recipient && (
+                <div class="result-recipient">To: {letter.data.recipient}</div>
+              )}
+              <div class="result-snippet">
+                {letter.body.substring(0, 200)}...
+              </div>
+              <div class="result-tags">
+                <span class="result-tag">{letter.data.collectionTitle}</span>
+                <span class="result-tag">Letter {letter.data.number}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="no-results">
+          <h2 class="no-results-title">No results found</h2>
+          <p class="no-results-text">
+            Try searching with different keywords or check your spelling.
+          </p>
+        </div>
+      )}
+      </div>
+    </div>
+  )}
+</Base>
+
+<style>
+  /* ==================== SEARCH HERO ==================== */
+  .search-hero {
+    grid-column: 1 / -1;
+    padding: var(--space-9xl) 0 var(--space-8xl) 0;
+    text-align: center;
+    animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .search-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-text-label);
+    margin-bottom: var(--space-xl);
+    font-weight: 700;
+  }
+
+  .search-title {
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: var(--space-5xl);
+    color: var(--color-text-primary);
+  }
+
+  .search-title mark {
+    background: linear-gradient(135deg,
+      rgba(244, 223, 224, 0.4) 0%,
+      rgba(248, 232, 224, 0.5) 100%);
+    color: var(--color-accent-start);
+    font-weight: 500;
+    padding: 0 var(--space-sm);
+  }
+
+  /* ==================== SEARCH BAR ==================== */
+  .search-container {
+    grid-column: 3 / 11;
+    margin-bottom: var(--space-8xl);
+    animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    transition: all var(--transition-base);
+  }
+
+  .search-bar:focus-within {
+    border-color: var(--color-accent-start);
+    box-shadow: 0 8px 32px rgba(201, 107, 111, 0.08);
+  }
+
+  .search-input {
+    flex: 1;
+    padding: var(--space-lg) var(--space-3xl);
+    border: none;
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    background: transparent;
+    color: var(--color-text-primary);
+    font-weight: 400;
+  }
+
+  .search-input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .search-input:focus {
+    outline: none;
+  }
+
+  .search-button {
+    padding: var(--space-lg) var(--space-4xl);
+    background: var(--gradient-accent-135);
+    border: none;
+    font-family: var(--font-sans);
+    font-size: var(--text-tiny);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-bg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .search-button:hover {
+    background: linear-gradient(135deg, #b85a5e 0%, #c99663 100%);
+  }
+
+  /* ==================== SEARCH LAYOUT ==================== */
+  .search-layout {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-6xl);
+    margin-bottom: var(--space-8xl);
+  }
+
+  /* ==================== FILTERS SIDEBAR ==================== */
+  .filters-sidebar {
+    position: sticky;
+    top: calc(var(--space-6xl) + 80px);
+    height: fit-content;
+  }
+
+  .filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .filters-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: 600;
+    letter-spacing: var(--tracking-normal);
+    color: var(--color-text-primary);
+  }
+
+  .clear-filters {
+    font-family: var(--font-sans);
+    font-size: var(--text-tiny);
+    color: var(--color-accent-start);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-base);
+  }
+
+  .clear-filters:hover {
+    color: #b85a5e;
+  }
+
+  .filter-group {
+    margin-bottom: var(--space-4xl);
+  }
+
+  .filter-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-tiny);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-label);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+  }
+
+  .filter-select {
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--color-text-primary);
+    font-weight: 400;
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .filter-select:hover {
+    border-color: var(--color-text-tertiary);
+  }
+
+  .filter-select:focus {
+    outline: none;
+    border-color: var(--color-accent-start);
+  }
+
+  /* ==================== RESULTS ==================== */
+  .results-section {
+    min-width: 0;
+  }
+
+  .results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-5xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .results-count {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  /* ==================== RESULT ITEM ==================== */
+  .results-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result-item {
+    padding: var(--space-5xl) 0;
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+    display: block;
+    transition: all var(--transition-base);
+    position: relative;
+  }
+
+  .result-item::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-accent-start) 0%, transparent 100%);
+    transition: width var(--transition-base);
+  }
+
+  .result-item:hover {
+    transform: translateX(8px);
+  }
+
+  .result-item:hover::before {
+    width: 100%;
+  }
+
+  .result-item:hover .result-title {
+    color: var(--color-accent-start);
+  }
+
+  .result-item:hover .result-tags {
+    transform: translateX(4px);
+  }
+
+  .result-meta {
+    display: flex;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-md);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .result-author {
+    color: var(--color-accent-start);
+    font-weight: 600;
+  }
+
+  .result-title {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+    letter-spacing: var(--tracking-title);
+    transition: color var(--transition-base);
+  }
+
+  .result-recipient {
+    font-family: var(--font-sans);
+    font-size: var(--text-tiny);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-md);
+    font-weight: 400;
+  }
+
+  .result-snippet {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+    font-weight: 400;
+  }
+
+  .result-tags {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    transition: transform var(--transition-base);
+  }
+
+  .result-tag {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    padding: var(--space-xs) var(--space-sm);
+    background: #f7f5f0;
+    font-weight: 500;
+  }
+
+  /* ==================== NO RESULTS ==================== */
+  .no-results {
+    text-align: center;
+    padding: var(--space-9xl) 0;
+  }
+
+  .no-results-title {
+    font-size: var(--text-title);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .no-results-text {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 1100px) {
+    .search-container {
+      grid-column: 2 / 12;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .search-hero {
+      padding: var(--space-7xl) 0 var(--space-6xl) 0;
+    }
+
+    .search-title {
+      font-size: 42px;
+    }
+
+    .search-container {
+      grid-column: 1 / -1;
+    }
+
+    .search-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .filters-sidebar {
+      position: static;
+      padding: var(--space-4xl);
+      background: rgba(249, 244, 238, 0.3);
+      border: 1px solid var(--color-border);
+      margin-bottom: var(--space-5xl);
+    }
+
+    .search-bar {
+      flex-direction: column;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: var(--space-lg) var(--space-xl);
+    }
+
+    .search-button {
+      width: 100%;
+      padding: var(--space-lg);
+    }
+
+    .result-title {
+      font-size: 24px;
+    }
+
+    .result-snippet {
+      font-size: var(--text-small);
+    }
+  }
+</style>

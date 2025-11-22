@@ -1,0 +1,401 @@
+---
+export const prerender = true;
+
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+// Get all letters and group by collection
+const allLetters = await getCollection('letters');
+
+// Group letters by collection
+const collectionMap = new Map<string, {
+  title: string;
+  subtitle?: string;
+  author: string;
+  period?: string;
+  count: number;
+}>();
+
+allLetters.forEach((letter) => {
+  const { collection, collectionTitle, collectionSubtitle, author, period } = letter.data;
+
+  if (!collectionMap.has(collection)) {
+    collectionMap.set(collection, {
+      title: collectionTitle,
+      subtitle: collectionSubtitle,
+      author,
+      period,
+      count: 0,
+    });
+  }
+
+  const col = collectionMap.get(collection)!;
+  col.count++;
+});
+
+// Convert to array and sort by title
+const collections = Array.from(collectionMap.entries())
+  .map(([id, data]) => ({ id, ...data }))
+  .sort((a, b) => a.title.localeCompare(b.title));
+
+const totalLetters = allLetters.length;
+
+// Structured data for homepage
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "PaperLanterns.ink",
+  "description": "Curated letters from history. Discover the personal correspondence of writers, philosophers, and historical figures from public domain archives.",
+  "url": Astro.site?.toString() || "https://collections.paperlanterns.ink",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${Astro.site || "https://collections.paperlanterns.ink"}/search?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+---
+
+<Base title="Letter Collections - PaperLanterns.ink">
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-eyebrow">Letter Collections</div>
+    <h1 class="hero-title">Words That<br>Shaped History</h1>
+    <p class="hero-subtitle">
+      Explore intimate letters from history's greatest minds. From spiritual teachings to revolutionary ideas,
+      each collection reveals the private thoughts that changed the world.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">{totalLetters.toLocaleString()}</div>
+        <div class="stat-label">Letters</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">{collections.length}</div>
+        <div class="stat-label">Collections</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <form action="/search" method="get" class="search-bar">
+      <input
+        type="search"
+        name="q"
+        class="search-input"
+        placeholder="Search letters by author, recipient, date, or content..."
+        autocomplete="off"
+      />
+      <button type="submit" class="search-button">Search</button>
+    </form>
+  </div>
+
+  <!-- Section Header -->
+  <div class="section-header">
+    <h2 class="section-title">Browse Collections</h2>
+    <div class="section-description">Organized by author and historical period</div>
+  </div>
+
+  <!-- Collections Grid -->
+  <div class="collections-grid">
+    {collections.map((collection) => (
+      <a href={`/${collection.id}`} class="collection-card">
+        <div class="collection-meta">{collection.period || 'Historical'}</div>
+        <h3 class="collection-name">{collection.author}</h3>
+        <div class="collection-title">{collection.title}</div>
+        {collection.subtitle && (
+          <div class="collection-subtitle">{collection.subtitle}</div>
+        )}
+        <div class="collection-count">{collection.count} {collection.count === 1 ? 'Letter' : 'Letters'}</div>
+      </a>
+    ))}
+  </div>
+</Base>
+
+<style>
+  /* ==================== HERO SECTION ==================== */
+  .hero-section {
+    grid-column: 1 / -1;
+    padding: var(--space-9xl) 0 var(--space-8xl) 0;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-sans);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent-start);
+    margin-bottom: var(--space-xl);
+    font-weight: 700;
+  }
+
+  .hero-title {
+    font-size: 120px;
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -4px;
+    margin-bottom: var(--space-5xl);
+    color: var(--color-text-primary);
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--text-subtitle);
+    color: var(--color-text-secondary);
+    font-weight: 400;
+    max-width: 680px;
+    margin: 0 auto var(--space-6xl) auto;
+    line-height: var(--leading-relaxed);
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-7xl);
+    margin-top: var(--space-6xl);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: var(--color-accent-start);
+    margin-bottom: var(--space-sm);
+  }
+
+  .stat-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-tiny);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    font-weight: 600;
+  }
+
+  /* ==================== SEARCH BAR ==================== */
+  .search-container {
+    grid-column: 3 / 11;
+    margin-bottom: var(--space-8xl);
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-border);
+    background: #ffffff;
+    transition: border-color var(--transition-base);
+  }
+
+  .search-bar:hover {
+    border-color: var(--color-accent-end);
+  }
+
+  .search-bar:focus-within {
+    border-color: var(--color-accent-start);
+  }
+
+  .search-input {
+    flex: 1;
+    padding: var(--space-xl) var(--space-3xl);
+    border: none;
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    background: transparent;
+    color: var(--color-text-primary);
+  }
+
+  .search-input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .search-input:focus {
+    outline: none;
+  }
+
+  .search-button {
+    padding: var(--space-xl) var(--space-4xl);
+    background: var(--color-accent-start);
+    border: none;
+    font-family: var(--font-sans);
+    font-size: var(--text-tiny);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color var(--transition-base);
+  }
+
+  .search-button:hover {
+    background: #b85a5e;
+  }
+
+  /* ==================== SECTION HEADER ==================== */
+  .section-header {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: var(--space-7xl);
+  }
+
+  .section-title {
+    font-size: var(--text-title);
+    font-weight: 500;
+    letter-spacing: var(--tracking-title);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .section-description {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--color-text-tertiary);
+    font-weight: 400;
+  }
+
+  /* ==================== COLLECTIONS GRID ==================== */
+  .collections-grid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-9xl);
+  }
+
+  .collection-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    padding: var(--space-5xl);
+    transition: border-color var(--transition-base);
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+
+  .collection-card:hover {
+    border-color: var(--color-accent-start);
+  }
+
+  .collection-card:hover .collection-name {
+    color: var(--color-accent-start);
+  }
+
+  .collection-meta {
+    font-family: var(--font-sans);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-text-label);
+    margin-bottom: var(--space-lg);
+    font-weight: 600;
+  }
+
+  .collection-name {
+    font-size: var(--text-title);
+    font-weight: 500;
+    line-height: var(--leading-title);
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+    letter-spacing: var(--tracking-title);
+    transition: color var(--transition-base);
+  }
+
+  .collection-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-sm);
+    font-weight: 400;
+    line-height: var(--leading-relaxed);
+  }
+
+  .collection-subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--text-tiny);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .collection-count {
+    font-family: var(--font-sans);
+    font-size: var(--text-tiny);
+    color: var(--color-accent-start);
+    font-weight: 600;
+    transition: transform var(--transition-base);
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 1100px) {
+    .hero-title {
+      font-size: 80px;
+      letter-spacing: -3px;
+    }
+
+    .search-container {
+      grid-column: 2 / 12;
+    }
+
+    .collections-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-xl);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: var(--space-7xl) 0 var(--space-6xl) 0;
+    }
+
+    .hero-title {
+      font-size: 56px;
+      letter-spacing: -2px;
+    }
+
+    .hero-stats {
+      gap: var(--space-5xl);
+    }
+
+    .stat-number {
+      font-size: 36px;
+    }
+
+    .search-container {
+      grid-column: 1 / -1;
+    }
+
+    .search-bar {
+      flex-direction: column;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: var(--space-lg) var(--space-xl);
+    }
+
+    .search-button {
+      width: 100%;
+      padding: var(--space-lg);
+    }
+
+    .collections-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+  }
+</style>

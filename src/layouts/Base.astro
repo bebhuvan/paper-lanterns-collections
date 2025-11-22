@@ -1,0 +1,368 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+}
+
+const {
+  title,
+  description = 'Curated letters from history. Discover the personal correspondence of writers, philosophers, and historical figures from public domain archives.',
+  image = '/og-image.png',
+  article = false
+} = Astro.props;
+
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : null;
+const currentPath = Astro.url.pathname;
+const siteUrl = Astro.site?.toString() || 'https://collections.paperlanterns.ink';
+const fullImageUrl = new URL(image, siteUrl).toString();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title}>
+  <meta name="description" content={description}>
+  <meta name="author" content="PaperLanterns.ink">
+  <meta name="keywords" content="historical letters, correspondence, public domain, archive, literature, history">
+
+  <!-- Canonical URL -->
+  {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content={article ? 'article' : 'website'}>
+  <meta property="og:url" content={canonicalURL?.toString() || siteUrl}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={fullImageUrl}>
+  <meta property="og:site_name" content="PaperLanterns.ink">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content={canonicalURL?.toString() || siteUrl}>
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={fullImageUrl}>
+
+  <!-- Additional SEO -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="PaperLanterns.ink RSS Feed" href="/rss.xml">
+
+  <!-- Google Fonts - Spectral & Inter (optimized loading) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#c96b6f">
+</head>
+<body>
+  <div class="grid-container">
+    <header class="site-header">
+      <a href="/" class="logo">PaperLanterns.ink</a>
+      <div class="nav-center">Historical Correspondence</div>
+      <nav class="nav-links">
+        <a href="/" class:list={{active: currentPath === '/'}}>Home</a>
+        <a href="/search" class:list={{active: currentPath === '/search'}}>Search</a>
+        <a href="/about" class:list={{active: currentPath === '/about'}}>About</a>
+      </nav>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <div class="footer-logo">PaperLanterns.ink</div>
+        <p class="footer-tagline">
+          Preserving historical correspondence<br>
+          from public domain archives.
+        </p>
+        <a href="https://paperlanterns.ink" class="main-site-link">
+          Visit Main Site →
+        </a>
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-nav-title">Navigate</div>
+        <div class="footer-nav-links">
+          <a href="/">Browse Collections</a>
+          <a href="/search">Search Letters</a>
+          <a href="/about">About</a>
+          <a href="/rss.xml">RSS Feed</a>
+        </div>
+      </div>
+
+      <div class="footer-info">
+        All letters are sourced from<br>
+        Archive.org and other public domain collections.<br>
+        <br>
+        © 2025 PaperLanterns.ink
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
+
+<style>
+  /* ==================== HEADER ==================== */
+  .site-header {
+    grid-column: 1 / -1;
+    padding: var(--space-6xl) 0;
+    border-bottom: 1px solid var(--color-text-primary);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--grid-gap);
+    align-items: center;
+    background: var(--color-bg);
+  }
+
+  .logo {
+    grid-column: 1 / 4;
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: 700;
+    letter-spacing: var(--tracking-normal);
+    color: var(--color-text-primary);
+    position: relative;
+    text-decoration: none;
+    transition: color var(--transition-base);
+  }
+
+  .logo:hover {
+    color: var(--color-accent-start);
+  }
+
+  .logo::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: var(--gradient-accent);
+  }
+
+  .nav-center {
+    grid-column: 5 / 9;
+    text-align: center;
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    align-self: center;
+    font-weight: 600;
+  }
+
+  .nav-links {
+    grid-column: 10 / -1;
+    display: flex;
+    gap: var(--space-5xl);
+    justify-content: flex-end;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: 500;
+  }
+
+  .nav-links a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    position: relative;
+    padding: var(--space-xs) 0;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-accent);
+    transition: width var(--transition-base);
+  }
+
+  .nav-links a:hover {
+    color: var(--color-accent-start);
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    width: 100%;
+  }
+
+  .nav-links a.active {
+    color: var(--color-accent-start);
+  }
+
+  /* ==================== FOOTER ==================== */
+  .site-footer {
+    grid-column: 1 / -1;
+    padding: var(--space-7xl) 0;
+    border-top: 1px solid var(--color-text-primary);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--grid-gap);
+    margin-top: var(--space-9xl);
+  }
+
+  .footer-brand {
+    grid-column: 1 / 4;
+  }
+
+  .footer-logo {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-primary);
+  }
+
+  .footer-tagline {
+    font-family: var(--font-sans);
+    font-size: var(--text-tiny);
+    color: var(--color-text-tertiary);
+    line-height: var(--leading-relaxed);
+    font-weight: 400;
+    margin: 0 0 var(--space-3xl) 0;
+  }
+
+  .main-site-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: 600;
+    color: var(--color-accent-start);
+    text-decoration: none;
+    padding: var(--space-md) var(--space-xl);
+    border: 1px solid var(--color-accent-start);
+    transition: all var(--transition-base);
+  }
+
+  .main-site-link:hover {
+    background: var(--color-accent-start);
+    color: var(--color-bg);
+    transform: translateX(4px);
+  }
+
+  .footer-nav {
+    grid-column: 6 / 9;
+    font-family: var(--font-sans);
+  }
+
+  .footer-nav-title {
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-text-label);
+    margin-bottom: var(--space-lg);
+    font-weight: 700;
+  }
+
+  .footer-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-nav-links a {
+    font-size: var(--text-small);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    font-weight: 400;
+  }
+
+  .footer-nav-links a:hover {
+    color: var(--color-accent-start);
+    transform: translateX(4px);
+  }
+
+  .footer-info {
+    grid-column: 10 / -1;
+    text-align: right;
+    font-family: var(--font-sans);
+    font-size: var(--text-tiny);
+    color: var(--color-text-tertiary);
+    line-height: var(--leading-loose);
+    font-weight: 400;
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 768px) {
+    .site-header {
+      padding: var(--space-lg) 0;
+    }
+
+    .logo {
+      grid-column: 1 / -1;
+      font-size: var(--text-small);
+    }
+
+    .nav-center {
+      display: none;
+    }
+
+    .nav-links {
+      grid-column: 1 / -1;
+      justify-content: center;
+      gap: var(--space-lg);
+      margin-top: var(--space-sm);
+      font-size: var(--text-small);
+    }
+
+    .footer-brand,
+    .footer-nav,
+    .footer-info {
+      grid-column: 1 / -1;
+      text-align: left;
+    }
+
+    .footer-info {
+      margin-top: var(--space-3xl);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .site-header {
+      padding: var(--space-md) 0;
+    }
+
+    .logo {
+      font-size: var(--text-tiny);
+    }
+
+    .nav-center {
+      display: none;
+    }
+
+    .nav-links {
+      gap: var(--space-sm);
+      margin-top: var(--space-xs);
+      font-size: var(--text-tiny);
+    }
+  }
+</style>

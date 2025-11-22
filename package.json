@@ -1,0 +1,22 @@
+{
+  "name": "paper-lanterns-swiss",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "astro build && wrangler deploy",
+    "deploy:dry": "astro build && wrangler deploy --dry-run",
+    "cf:login": "wrangler login",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.14",
+    "astro": "^5.16.0"
+  },
+  "devDependencies": {
+    "@astrojs/cloudflare": "^12.6.11",
+    "wrangler": "^4.50.0"
+  }
+}
