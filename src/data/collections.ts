@@ -63,5 +63,18 @@ export const collectionMetadata: Record<string, CollectionMetadata> = {
     ],
     editor: 'R. L. Khipple',
     notes: 'Published by The Indian Printing Works, Lahore in 1947. Digitized from the Rashtrapati Bhavan Library collection. Contains 24 significant letters from Gandhi\'s correspondence during the independence movement (1918-1943).'
+  },
+  'dostoevsky-letters-reminiscences': {
+    id: 'dostoevsky-letters-reminiscences',
+    about: `A remarkable collection spanning over three decades (1849-1880) of Fyodor Dostoevsky's life, from a young writer sentenced to death to his final triumph at the Pushkin celebration in Moscow. These 46 letters and reminiscences offer an intimate window into the mind of one of literature's greatest psychological and philosophical novelists. The collection includes his profound death sentence letter, correspondence from European exile discussing The Idiot and The Devils, Anna Grigorevna's memoirs of their struggles, the moving Pushkin celebration letters, and philosophical exchanges with Konstantin Pobiedonoszev about The Brothers Karamazov. Together, they reveal Dostoevsky's creative process, spiritual struggles, and unwavering faith amid poverty, illness, and persecution.`,
+    sources: [
+      {
+        title: 'Dostoevsky: Letters and Reminiscences (1923)',
+        url: 'https://archive.org/details/dostoevskyletter00dostuoft/mode/2up',
+        type: 'archive'
+      }
+    ],
+    editor: 'Translated by S. S. Koteliansky and J. Middleton Murry',
+    notes: 'Published by Chatto & Windus, London, 1923. Includes letters to Apollon Maikov, Anna Grigorevna Dostoevsky, and Konstantin Pobiedonoszev, along with reminiscences by Anna Grigorevna. 46 posts covering the death sentence (1849), European exile (1867-1870), return to Russia (1871-1872), and final years working on The Brothers Karamazov (1879-1880).'
   }
 };
