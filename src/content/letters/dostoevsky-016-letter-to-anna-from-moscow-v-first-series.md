@@ -1,0 +1,27 @@
+---
+title: "Letter to Anna from Moscow (V - First Series)"
+author: "Fyodor Dostoevsky"
+recipient: "Anna Grigorevna Dostoevsky"
+date: "V, 1880"
+location: "Moscow"
+number: 21
+collection: "dostoevsky-letters-reminiscences"
+collectionTitle: "Letters and Reminiscences"
+collectionSubtitle: "Translated by S. S. Koteliansky and J. Middleton Murry"
+period: "1838-1880"
+translator: "S. S. Koteliansky and J. Middleton Murry"
+---
+
+## V
+
+**Loskutnaya, Room No. 33** **Moscow, May 27–28, 2 a.m.**
+
+My dear friend Anya, at last, this evening, I received from you five lines, in pencil, written on the 24th. And this I received only on the evening of the 27th! How long a letter takes! I was awfully glad, but also saddened, for there were only five lines, and they began with 'Dear Fiodor Mihailovich.' Well, never mind! I hope to receive more next time. You know now everything from my letter; it seems I shall certainly have to remain here for the unveiling of the memorial. In the evening I was at Katkov’s. I told him everything (he had already heard from others about how 'Moscow' was waiting for me); and he said firmly I must not go away. To-morrow there will be a telegram from Dolgorouky and the day of the opening will be definitely settled. But every one says the 4th. If the opening takes place on the 4th, I’ll leave probably on the 8th (if not on the 7th even), and on the 9th I shall be in Roussa. I called on Katkov with the object of obtaining a postponement of the *Karamazovs* till the July number. He listened to me very amiably (and was altogether very friendly and obliging, as he ever had been, to me before), but he said nothing definite about the postponement. All depends on Markevich, that is, on whether he sends in the next instalment of his novel. I told Katkov about my acquaintance with the high personage at Countess Mengden’s and then at K. K.’s. He was pleasantly surprised; his expression completely changed.
+
+This time I did not upset the tea, for which he treated me to expensive cigars. He saw me down to the hall and thereby surprised the whole office, who were watching us from the other room, for Katkov never comes down with any one. I think on the whole the affair with the *Russky Viestnik* will somehow be arranged. I did not say a single word about the article on Poushkin. Perhaps they’ll forget about it, so that I shall be able to give it to Yuriev, from whom I am certain to get more money. I dream even of finding a moment of time here before the 8th to sit down to the *Karamazovs*, so as to be ready for any emergency, but it is hardly possible. — If my speech at the solemn opening is a success, then in Moscow (and therefore in all Russia) I shall henceforth be more famous as a writer. (I mean, famous in the sense in which Turgenev and Tolstoy have already won greatness. Goncharov, for instance, who never moves out of Petersburg, although he is known here, yet it is only vaguely and coldly.) — But how can I manage to live without you and without the little ones all this time? Is it an easy thing, for twelve whole days? I sit and dream of the children, and am sad all the while. Did Grandma return? How are you there all by yourselves? Are you afraid of anything, are you worried about anything? For the love of God, write me oftener, and if anything should happen (which God forbid) telegraph me instantly. By the way (read this carefully), address all letters direct to me in the future to the **Loskutnaya Hotel, on the Tverskoy, Moscow, F. M. Dostoevsky, Room No. 33**. Why should I have to go every evening to Elena Pavlovna for your letters? First, it is a long way; secondly, I lose time, so that if I happened to want to do something (the *Karamazovs*), I should have no time at all. Also I must have tired them out. To-day I drove on there from Katkov; I received your letter and found there the Ivanovs. Mashenka played Beethoven very well. Here it is half sun, half showers, and it is fairly windy and fresh. Mashenka is going with Natasha the day after to-morrow to 'Dorovoye,' and Ninochka is remaining here. Ninochka is untamed and taciturn; you can’t get anything out of her; it’s as though she were ashamed. All of them live near Elena Pavlovna.
+
+Well, good-bye for now. I believe I have written everything I wanted to. If there is something new to-morrow, I shall write; if not then the day after to-morrow. As for Leo Tolstoy, Katkov also declared that people say he has gone quite off his head. Yuriev urged me to go to Yasnaya Polyana; there and back including my visit would take less than two days altogether. But I shall not go, although it would be very interesting. To-day I dined at the Moscow Tavern on purpose to keep down the bill at the Loskutnaya. But I came to the conclusion the Loskutnaya may perhaps after all charge for my having dinner there every day. In the Loskutnaya they are polite to a degree; not a single letter of yours will go wrong, and as I shall in no case change my hotel now, you may without hesitation send me letters addressed to the Loskutnaya. Good-bye for now, I kiss you 'dear Anna Gregorevna.' Hug the little ones as tightly and warmly as you can, tell them Daddy told you to.
+
+Wholly your **F. DOSTOEVSKY.**
+
+Elena Pavlovna’s children are with her and they are charming.

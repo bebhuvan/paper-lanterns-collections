@@ -1,0 +1,37 @@
+---
+title: "Letter to Anna from Moscow (VII)"
+author: "Fyodor Dostoevsky"
+recipient: "Anna Grigorevna Dostoevsky"
+date: "May 30, 1880"
+location: "Moscow"
+number: 23
+collection: "dostoevsky-letters-reminiscences"
+collectionTitle: "Letters and Reminiscences"
+collectionSubtitle: "Translated by S. S. Koteliansky and J. Middleton Murry"
+period: "1838-1880"
+translator: "S. S. Koteliansky and J. Middleton Murry"
+---
+
+## VII
+
+**Loskutnaya, Room 33** **Moscow, May 30, 1880.**
+
+I am writing to you now, although the letter will not go away till to-morrow, my dear Anya. There is almost no news. Only that I am in for a lot of bother and various official ceremonies: I have to present myself at the Town Hall, obtain admission cards, find out where to stand and sit at the ceremony, etc. And above all, those wreaths—they say I must have two. The Town Hall is arranging for them—30 roubles for the two. Stupid! Zolotariov has not come yet, but he is coming, and I ’ll put the whole ceremony of the unveiling on to his shoulders: in a frock-coat only and with no hat on I really may catch a cold.
+
+Yesterday morning the Averkievs came in to see me; Poushkin’s nephews, Pavlischev and Poushkin, called on me also, to make my acquaintance. After that I drove to Yuriev (about all these cards and ceremonies), but did not find him at home. I dined at home, and after dinner in came Viskovatov, who declared his love for me, and asked, why I did not love him? etc. Still he was more possible than I ’ve known him before. (By the way, he told me that Sabourov (Minister of Education), a relation of his, had read certain passages of the *Karamazovs* and literally wept for ecstasy. At nine o’clock we drove to Yuriev, but again did not find him. Viskovatov suddenly remembered that Anna Nicolayevna Englehardt was here and suggested we should call on her. We took a cab and arrived at ten o’clock at Dusseau’s Hotel. She was already in bed, but was very glad, and we sat for an hour, talking of the beautiful and the sublime. She is not here for the celebration, but to meet some relatives. But now she is not well; she has a swollen leg.
+
+This morning when I was asleep Ivan Sergueyevich Aksakov called on me, but told them not to wake me. After this I drove to Polivanov (Director of the Secondary School and the Secretary of the Society). He explained to me all the steps I must take at the Mansion House, and about the admission cards, and despatched a young man to help me. He introduced me to his family. A whole company of teachers and pupils gathered round and we went (in the same building) to look at the Poushkin portraits and things which are at present at the school. After that, having come home, I found a note from Grigorovich, inviting me to dine at Tiestov’s at six. I wonder whether I shall go. Meanwhile I sat down to write you my bulletin. At 8 o’clock I shall go to Elena Pavlovna for your letter. (Yesterday, the 29th, I received one.) After that, I ’ll go home and sit down to my speech, which must be polished up. A horrid existence on the whole; the weather is wonderful. All the people here are in their own homes; I am the only visitor. In the evening I shall write more.
+
+**May 30-31, 1 a.m.**
+
+At Tiestov’s restaurant I found no Grigorovich, so I returned home and dined. After that I drove to Elena Pavlovna; she was not at home, but her children told me there had been no letter from you. By my reckoning perhaps to-morrow there will be a letter from you for certain. Putting two and two together I now understand that from all my previous letters you came to the conclusion that I was coming on the 28th. But you must by now have received the letters in which I hesitated whether to return or not, and therefore there should be an answer now. The trouble was that we somehow failed to make all this clear before I went away. For you could have written in any case, even reckoning that I was coming back, care of Elena Pavlovna, so as not to leave me in the dark about yourself and the children. I also imagine that on the 2nd I shall have a letter from you sent direct to the Loskutnaya. Your letters addressed care of Elena Pavlovna, that is, your previous letters you might have sent without any fear, for even had I gone away, nobody would have opened them, and she would have sent them back to Roussa. But it would be better to address your letters to the Loskutnaya, so that I don’t have to go to Elena Pavlovna because the great to-do begins immediately (from the 2nd). I shall have to get up early and bustle about all day long; I shall not have the time even to keep on going to Elena Pavlovna. Also I shall stop writing detailed bulletins to you, as I have done till now: I shall have no time at all.
+
+On the 3rd the Mansion House receives guests; there will be speeches, frock-coats, silk hats, white ties. And then there is the unveiling dinner at the Town Hall; after which on the mornings of the 5th and 6th there will be meetings, and in the evenings literary readings. Also on the 2nd there will be an evening meeting of the 'Lovers of Literature,' when it will be settled who shall speak and at what time. I believe I shall have to speak on the second day, on the 6th. I have been to Morosov and to the Central Shop. From Morosov I got altogether 14 roubles, and at the Central, although they told me you had written to them to remit me 50 roubles, they ask for a postponement until the 6th or 7th. As on the 7th, moreover, I shall have to make farewell visits, and there is a number of them, I may be able to leave only on the 8th, and shall let you know by which train. But I shall try to leave on the 8th for certain. I called on Varya. She told me a great deal about her grandchildren and asked my advice. She is a sensible and good woman. In the evening I managed to have just a glance at the MS. How are the little ones? I miss them very much; I don’t hear their sweet voices. And I keep on wondering if anything has happened to you all? If anything should happen (which God forbid), wire to me without fail. Good-bye for now, my darling. Ah, if I received only a line from you to-morrow! I embrace you and the children, and kiss you all a great deal. And the *Karamazovs*, oh, the *Karamazovs*! Ah, what a throwing away of precious time! Still I am now absorbed in this affair: they (the Westerners) have a strong party. I embrace you again and again.
+
+Your **F. DOSTOEVSKY.**
+
+Yesterday afternoon the gold link in my cuff was broken; the one I had repaired. Half of it remained in the sleeve of my shirt, and the other I must have dropped somewhere in the street.
+
+*(Postscript on the first page)*: But you are mistaken. My dreams are very bad ones. Listen: you keep on writing about the application to the nobility. Firstly, even if I could, I have no time, above all, this matter must be done from Petersburg, through people. I shall explain it all to you when we meet. I ’ll do it without fail in Petersburg. Here no applications will serve any purpose: I know it, I am firmly convinced.
+
+*(Postscript on the second page)*: I called on Ivan Aksakov—he is away in his country house. — Chayev is also in the country. I shall go to Muraviov if I find time. Once more wholly yours, loving you.

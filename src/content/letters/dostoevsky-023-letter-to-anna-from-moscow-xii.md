@@ -1,0 +1,31 @@
+---
+title: "Letter to Anna from Moscow (XII)"
+author: "Fyodor Dostoevsky"
+recipient: "Anna Grigorevna Dostoevsky"
+date: "June 7, 1880"
+location: "Moscow"
+number: 28
+collection: "dostoevsky-letters-reminiscences"
+collectionTitle: "Letters and Reminiscences"
+collectionSubtitle: "Translated by S. S. Koteliansky and J. Middleton Murry"
+period: "1838-1880"
+translator: "S. S. Koteliansky and J. Middleton Murry"
+---
+
+## XII
+
+**Loskutnaya, Room 33** **Moscow, June 7, 1880, Midnight.**
+
+My lovely dearest darling Anya, I write in a hurry. The unveiling of the memorial took place yesterday, how then can I describe it? Even twenty pages would not describe it, and I haven’t a minute. This is the third night I have slept for only five hours,—to-night will be the same. Then there was the dinner with speeches.[^1] Then the reading with music at the evening literary festivity at the Noblemen’s Assembly. I read the scene of Pimen. In spite of the impossible choice (for surely one cannot shout Pimen across a whole hall) and the fact that I had to read in the worst sounding hall, they say that it went off superbly, but that I was not very audible. I was received excellently; they would not let me begin for a long time; they kept applauding; and after the reading they called me out three times. But Turgenev, who read shockingly, was called out more often than I. Behind the scenes (a huge place in darkness) I noticed about a hundred young people, who began a frenzied shouting each time Turgenev appeared. It immediately occurred to me that they must be a claque put there by Kovalevsky. And so it turned out. To-day at the morning sitting because of that claque Ivan Aksakov refused to make his speech after Turgenev (in which the latter underrated Poushkin, taking away from him the name of national poet), and he explained to me that the claqueurs were arranged beforehand and placed there by Kovalevsky (all of them are his students and all Westerners), in order to proclaim Turgenev as the head of their school of thought, and to humiliate us, in case we go against them.
+
+Nevertheless, the reception given to me yesterday was most wonderful, although only the public in the chairs applauded. Besides, crowds of men and women kept on coming to me behind the scenes to press my hand. In the interval I crossed the hall, and a multitude of people, youths, greybeards, women, threw themselves at me, saying: ‘You are our prophet, we are better men after reading the *Karamazovs*.’ (In a word, I became convinced that the *Karamazovs* have a colossal significance.) To-day, coming out from the morning session, at which I did not speak, the same thing happened. On the staircase and at the cloak-room, men, women, and all sorts of people detained me. At the dinner in the evening two ladies brought me flowers. Some of them I recognised by their names — Mme. Tretiakov, Mme. Golokhvastov, Mme. Moshnin, and others. I ’ll pay a visit to Mme. Tretiakov the day after to-morrow. (She is the wife of the Tretiakov who has a picture gallery.) To-day was the second dinner — the literary one, a couple of hundred people. The young generation met me at my arrival, hailed me, paid court to me, made frenzied speeches — and all this still before the dinner. At dinner many speeches were made and toasts given. I did not want to speak, but towards the end of the dinner many people jumped up from the table and forced me to speak. I said only a few words, — and there was a roar of enthusiasm, literally a roar. After that in the next hall they sat round me — a dense crowd — and spoke much and ardently (at the coffee and cigars). But when at half-past nine I got up to go home (two-thirds of the guests were still there), they shouted out ‘Hurrah!’ to me, in which even those who did not sympathise had to take part involuntarily. After that, all that crowd poured with me down the stairs, and without overcoats, with no hats on, came out into the street and put me into my cab. And suddenly they threw themselves on me to kiss my hands. Not one, but scores of people, and not students only, but greybeards. No, Turgenev has only claqueurs, but my people have true enthusiasm. Maikov was there and witnessed all this; he must have been surprised. Several people (strangers to me) said in a whisper that for to-morrow, at the morning sitting, a real row was prepared for me and Aksakov. To-morrow, the 8th, is my really fateful day: in the morning I read my speech, and in the evening I read twice, *The She-Bear* and *The Prophet*. *The Prophet* I intend to read well. Wish for me!
+
+There is great commotion and excitement here. Yesterday at the Town Hall lunch Katkov ventured to make a long speech and did produce an effect, at least on a part of the public. Kovalevsky is outwardly very amiable to me, and in one toast he mentioned my name among others. Turgenev too. Annenkov tried to make up to me, but I turned away. You see, Anya, I have written to you, although my speech is not yet finally revised. On the 9th I am paying visits, and I must make up my mind definitely who I shall give my speech to. Everything depends on the effect it will make. I have stayed here a long time, spent a fair amount of money, but in all this I have laid a foundation for the future. I must now correct my speech, and get my linen ready for to-morrow. — To-morrow is my important debut. Am afraid I shall not have enough sleep. I am afraid of having a fit. — The Central Shop will not pay in spite of everything.
+
+Good-bye for now, my darling. I embrace you, do kiss the little ones. I ’ll probably leave on the 10th, and shall arrive on the night of the 11th. Be ready. I embrace you all warmly and bless you.
+
+Your eternal and invariable **F. DOSTOEVSKY.**
+
+This letter will probably be the last.
+
+---

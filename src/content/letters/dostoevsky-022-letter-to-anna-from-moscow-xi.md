@@ -1,0 +1,35 @@
+---
+title: "Letter to Anna from Moscow (XI)"
+author: "Fyodor Dostoevsky"
+recipient: "Anna Grigorevna Dostoevsky"
+date: "June 5, 1880"
+location: "Moscow"
+number: 27
+collection: "dostoevsky-letters-reminiscences"
+collectionTitle: "Letters and Reminiscences"
+collectionSubtitle: "Translated by S. S. Koteliansky and J. Middleton Murry"
+period: "1838-1880"
+translator: "S. S. Koteliansky and J. Middleton Murry"
+---
+
+## XI
+
+**Loskutnaya, Room 33****Moscow, June 5, 1880, 8 p.m.**
+
+My lovely Anyutka, I have just received your lovely little letter of June 3rd and hasten to write to you quickly as much as I shall have time for. No, my darling, don’t ask now for long letters, for there will hardly be time just to write you letters at all. Literally, the whole time, every minute, will now be occupied, and even that won’t be enough for what is taking place here,—that ’s certain, let alone for letters.
+
+To begin at the beginning. Yesterday morning myself, Souvorin, his wife, Burenin and Grigorovich were in the Kremlin, in the Armoury, where we examined all the ancient things; Chayev, the inspector of the Armoury, showed them to us. After that we went to the Patriarch’s sacristy. Having looked at everything, we went to Tiestov’s for a snack and remained to lunch. After that I called for a short while on Anna Nicolayevna Englehardt and had to buy a few things in the shops. Then, as agreed, we went to the Hermitage Park. The Souvorins, Grigorovich, and the rest were already there. In the park I met nearly all the delegates who have recently arrived from Petersburg. All kinds of persons came up to me; I can’t remember them all. Gayevsky, Lentovsky, the singer Melnikov and others. I sat all the time at tea with the Souvorins and Burenin, and now and then with Grigorovich, who kept on coming and going away. And suddenly a rumour spread that the Celebration was postponed. The rumour was spread by Melnikov. It was 11 o’clock, and I drove off to Yuriev. He was not at home, but I found his son and he assured me that it was nonsense. (And so it turned out to be.) Having come home I began to prepare myself for my reading on the evening of the 6th. It is, Anya, a stiff job. Imagine, the unveiling of the memorial will be on the 6th, and from 8 in the morning I shall be on my feet. At 2 o’clock the ceremony will be over, and the Solemn Service at the University begins. (No, upon my word, I shan’t go on.) After that dinner at the Mansion House, and the very same day, at 9 o’clock in the evening, tired, exhausted, crammed with food and drink, I have to read the monologue of the Chronicler (from *Boris Godounov*)—a most difficult thing to read aloud, requiring calmness and control of the subject. I feel I am not yet ready. Moreover, the evening almost starts with me—the most inconvenient position.
+
+I sat till 4 o’clock in the morning, and unexpectedly this morning after 9 o’clock I was awakened by Zolotariov who has at last arrived. I slept altogether 5½ hours. After him came Fiodor Petrovich Kornilov, after them Lopatin with the wreaths (the wreaths cost 14, not 17 roubles, but without ribbons). The ribbons, as well as to-morrow’s to-do, I handed over to Zolotariov. So I shall have to pay the 14 roubles for the wreaths myself. True, Zolotariov will have to pay just as much for the rest of the accessories.
+
+At 2 o’clock we set off to the Mansion House. All delegations (there are a hundred delegations) presented themselves to Prince Oldenburgsky, etc. The ceremonial, the fuss, the chaos—I don’t describe; it is too impossible to describe. I saw and spoke even with Poushkin’s daughter. Ostrovsky, the local Jupiter, came up to me. Turgenev, very amiable, ran up. The other liberal groups, amongst them Plescheyev and even the lame Yazykov, bear themselves with reserve and almost haughtily, as if to say: You are a reactionary, but we are radicals. And, generally, complete dissension has already begun. I am afraid that all these different tendencies existing side by side for so many days may end in a fight. The history of Katkov’s exclusion from the Celebration revolts many people terribly.
+
+I came home and dined at home in the hope of receiving a little letter from you and answering you, then to go through Pimen and my speech, afterwards to prepare my shirt and frock-coat for to-morrow, and then go to bed earlier. But Gaydebourov came in, and suddenly after him Maikov, and then Viskovatov. Maikov came (to Moscow) to read his poems. He is all right, nice; having a sniff round. I talked to them for a while, but sent them off soon. I am finishing these lines. Zolotariov does not come, and the wreaths are not finished. This morning I was at Varya’s. To-morrow all day long until night I shall be busy. After to-morrow there will be the session of the ‘Lovers of Literature,’ but I am not reading at that session, and after that there will be a dinner for 500 guests with speeches, and perhaps a free fight. Then on the morning of the 8th there is my speech at the session of the ‘Lovers of Literature,’ and in the evening, at the second festivity of the ‘Lovers’ I among others am reading several poems of Poushkin, and finishing with *The Prophet*. You write that I ought to leave on the 8th, but it is only on the 9th that I shall be paying my visits. I ’ll leave on the 10th and arrive on the 11th, and this only if I am not detained for one more day, which is quite possible. But I ’ll let you know then. It is much better for me to leave by the 1 p.m. train, than by the morning train, for in the first case I shall miss only one night’s sleep, but in the second I shan’t sleep two nights, for the night before leaving I shan’t sleep or I ’ll get up at 6.
+
+Letters about my own triumphs I shan’t have to write, since my day is on the 8th, and on the 6th I am only reading Pimen. Think it over, the speech will have to be published. Although there are three claimants, Yuriev is again drawing back, and Katkov after his affair might perhaps become completely indifferent to the whole business of the ceremony, and Souvorin, for all I know, may not repeat his request. Then it would be bad. Therefore it is quite possible that I may be back one day late. Recently I received 18 roubles 75 kopecks from Alexandrov. I called on Varya and I seem to have said my good-byes. She is going to her daughter in the country. — Good-bye for now, my darling. There are of course a thousand things one can’t manage to write in a letter; what can one say in a letter? But now there is no time, no time at all to write letters! Even this minute I am all exhausted and worn out. And I have to sit up for a long time. And when shall I have my sleep out? I embrace you warmly—warmly, the little ones I kiss terrifically and bless them.
+
+Wholly your **F. DOSTOEVSKY.**
+
+I don’t want to write of love, for love is not in words, but in deeds. And when shall I get to deeds? They are long overdue.
+
+All the same I ’ll try to find time to write you, if it ’s only a few lines.

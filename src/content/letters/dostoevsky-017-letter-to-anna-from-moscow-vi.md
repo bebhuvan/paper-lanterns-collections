@@ -1,0 +1,35 @@
+---
+title: "Letter to Anna from Moscow (VI)"
+author: "Fyodor Dostoevsky"
+recipient: "Anna Grigorevna Dostoevsky"
+date: "VI, 1880"
+location: "Moscow"
+number: 22
+collection: "dostoevsky-letters-reminiscences"
+collectionTitle: "Letters and Reminiscences"
+collectionSubtitle: "Translated by S. S. Koteliansky and J. Middleton Murry"
+period: "1838-1880"
+translator: "S. S. Koteliansky and J. Middleton Murry"
+---
+
+## VI
+
+**Loskutnaya, Room 33** **Moscow, May 28-29, 2 a.m.**
+
+My dear Anya, the only news is that a telegram came from Dolgorouky to-day saying the unveiling of the memorial is on the 4th. This is now settled. So that I can leave Moscow on the 8th or even on the 7th, and of course I ’ll try to hurry. But remain here I must, and I have decided to remain. The chief point is that I am needed here not only by the 'Lovers of Russian Literature,' but by our whole party, by our whole idea, for which we have been fighting these thirty years. For the hostile party (Turgenev, Kovalevsky, and almost the whole University) is quite determined to belittle Poushkin’s significance, as the representative of the Russian nation, and thereby to deny the very nation itself. Against them, on our side, we have only Ivan Sergueyevich Aksakov (Yuriev and the rest have no weight). But Ivan Aksakov has grown rather out of date and Moscow is a bit bored by him. Myself, however, Moscow has not heard or seen, and it is in me alone that the people are interested. My voice will have weight, and thus our side will triumph. All my life I have been fighting for this; I can’t run away from the field of battle now. When even Katkov, who on the whole is not a Slavophil, says to me: 'You must not go away, you can’t go away,' then, certainly, stay I must.
+
+This morning, at twelve o’clock, when I was still asleep, Yuriev arrived with that telegram. I began to dress while he was there. Suddenly just at that moment two ladies were announced. I was not dressed and sent to inquire who they were. The waiter returned with a note, that a Mme. Ilyin wished to ask my permission to select from all my works passages which were suitable for children, and to publish such a book for children. There’s an idea! We ought to have thought of it ourselves long ago and published such a little book for children. Such a book would certainly sell and perhaps give us a profit of 2000 roubles. Make her a present of 2000 roubles—what impertinence! Yuriev immediately went down (since it was he himself in his thoughtless way who had directed her to me) to say that I could not possibly agree, and that I couldn’t receive her. He went out, and suddenly Varvara Mihailovna arrived, and no sooner had she entered when Viskovatov appeared. Seeing that I had visitors Varvara immediately ran away. Yuriev came back and explained that the other lady visitor was on her own; she did not give her name, but only said that she had come to express her boundless respect, admiration, gratitude for all that I had given her by my works, etc. She went away; I did not see her. I asked my visitors to tea, when suddenly in came Grigorovich. They all sat for a couple of hours, and when Yuriev and Viskovatov left, Grigorovich remained without any thought of going. He began telling me various stories of things that had happened in the last thirty years, recollecting the past, etc. He certainly made up half of it; but it was interesting.
+
+Then when it was past four he declared that he was not going to part with me and began begging that we should dine together. We went again to the Moscow Tavern, where we dined at our leisure, and he talked all the while. Suddenly Averkiev and his wife turned up. Averkiev sat down at our table, and Donna Anna declared that she would call on me (much I want to see her!). It turned out that near us were dining Poushkin’s relations, his two nephews, Pavlischev and Poushkin, and some one else. Pavlischev also came up and declared that he too would call on me. In a word, here as in Petersburg they won’t let me alone. After dinner Grigorovich began asking me to drive with him to the park 'for a breath of fresh air,' but I refused, left him, walked home, and in ten minutes drove to Elena Pavlovna for your letter. But there was no letter, I only met the Ivanovs there. Mashenka is going to-morrow. I sat till eleven and returned home to have tea and write to you. This is all my news.
+
+The worst of it is that letters take three or four days. As I wrote to you that I was coming home, you of course won’t write to me, expecting me on the 28th; and now the time it will take before my letter of yesterday and of to-day about my new decision reaches you! I am afraid you will be wondering what has happened and be uneasy. But it can’t be helped. The only bad thing is that I shall perhaps have no letters from you for two days, and I am pining for you. I am sad here in spite of guests and dinners. Ah, Anya, what a pity that you could not have arranged (of course, it was out of the question) to have come with me!
+
+They say that even Maikov has changed his mind and will come here. There will be a lot of fuss; I have to present myself at the Town Hall as a delegate (I don’t know when yet), in order to receive my admission card for the ceremony. The windows of the houses that surround the square are being let at 50 roubles a window. They are also building wooden stands for the public at an equally enormous price. I am afraid too of its being a rainy day and I may catch a cold. I am not going to speak at the dinner on the opening day. At the meeting of the 'Lovers of Russian Literature,' I believe, I am to speak on the second day. Besides that, instead of a theatrical performance they think of having certain works of Poushkin read by well-known authors (Turgenev, myself, Yuriev), each selecting a passage. [They have asked me to read the scene of the Monk-Chronicler (from *Boris Godounov*), and also the 'Miser’s Monologue' (from the *Poor Knight*).] Besides, Yuriev, Viskovatov and myself will each read a poem on Poushkin’s death; Yuriev Guber’s, Viskovatov Lermontov’s, myself Tyuchev’s.
+
+The time passes, and people keep me from doing anything. Up till now I have not called for money at the Central Shop or at the Morosovs. I have not been to Chayev’s yet; I must call on Varya; I should also like to make the acquaintance of the church dignitaries, Nicolay Yaponsky and the local vicar Alexey, very interesting men. I don’t sleep well, I have nothing but nightmares. I am afraid of catching a cold on the opening day and of coughing while I am reading.
+
+With terrible impatience I keep expecting a note from you. Oh, my God, how are the children, how I long to see them! Are you well, happy, or are you cross? It is difficult without you. Well, good-bye for now, my darling. To-morrow I shall not go to Elena Pavlovna’s, she herself promised to send me any letter if it comes. I hug you all warmly, I bless the little ones.
+
+Wholly your **F. DOSTOEVSKY.**
+
+P.S. — If anything happens, telegraph to the Loskutnaya. Address letters there, too. Do my letters arrive safely? Bad luck if any get lost!
